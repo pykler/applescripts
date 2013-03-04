@@ -1,0 +1,8 @@
+# OS X
+.DS_Store
+
+# compiled apps
+apps/
+
+# tmp dirs
+tmp/
