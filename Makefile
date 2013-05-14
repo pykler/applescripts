@@ -5,3 +5,7 @@ all: ${APPS}
 
 apps/%.app: rotate_screen/%.applescript
 	osacompile -o $@ $<
+	cp resources/applet.icns $@/Contents/Resources/applet.icns
+
+clean:
+	rm -fr ${APPS}
