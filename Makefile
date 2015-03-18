@@ -1,9 +1,10 @@
-SCRIPTS=$(wildcard rotate_screen/*.applescript)
-APPS=$(patsubst rotate_screen%applescript,apps%app,${SCRIPTS})
+SCRIPTS=$(wildcard */*.applescript)
+APPS=$(patsubst %applescript,apps/%app,${SCRIPTS}) 
 
 all: ${APPS}
 
-apps/%.app: rotate_screen/%.applescript
+apps/%.app: %.applescript
+	mkdir -p $$(dirname $@)
 	osacompile -o $@ $<
 	cp resources/applet.icns $@/Contents/Resources/applet.icns
 
